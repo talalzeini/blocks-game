@@ -18,16 +18,11 @@ public class GameManager : MonoBehaviour
         Time.fixedDeltaTime = Time.fixedDeltaTime / slow;
         yield return new WaitForSeconds(4f / slow);
         Time.fixedDeltaTime = Time.fixedDeltaTime * slow;
-        GameOver.SetActive(true);
-        Time.timeScale = 0f;
+        TryAgain();
     }
     public void TryAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         Time.timeScale = 1f;
-    }
-    public void Quit()
-    { 
-        Application.Quit();
     }
 }
